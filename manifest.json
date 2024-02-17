@@ -12,9 +12,16 @@
 
 {
   // Required
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Permanent Record",
   "version": "0.0.1",
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Permnant Record",
+    "default_icon": "icons/TreeHacks-white-19.png"
+  },
+
+
 
   // Recommended
   "description": "Archives webpages onto the blockchain - TreeHacks 2024",
@@ -37,13 +44,6 @@
     "storage" // Allows access to chrome.storage API
 ],
 
-  // Probably will not need to be modified unless you *really*
-  // know what you're doing
-  "browser_action": {
-    "default_icon": "icons/TreeHacks-white-19.png",
-    "default_title": "Permnant Record",
-    "default_popup": "src/popup.html"
-  },
   "content_scripts": [
     {
       "matches": [
