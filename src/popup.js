@@ -11,9 +11,7 @@ document.getElementById('saveHtml').addEventListener('click', () => {
       reader.onload = async function(event) { 
         globalMhtmlString = event.target.result;
 
-        chrome.storage.local.set({ 'savedMhtml': globalMhtmlString }, function() {
-          console.log('MHTML saved.');
-        });
+        localStorage.setItem('savedMhtml',globalMhtmlString);
 
         var compressed = pako.deflate(globalMhtmlString, { to: 'string' });
         var encodedString = btoa(compressed);
@@ -607,4 +605,24 @@ async function mintPost() {
   modifyContractData();
 }
 
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.executeScript(tabs[0].id, {file: 'contentScript.js'});
+});
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.found) {
+    loadMHTML();
+  }
+});
+
+function loadMHTML() {
+  const mhtmlString = localStorage.getItem('saveMhtml');
+  if (mhtmlString) {
+    const mhtmlData = mhtmlString;
+
+    const blob = new Blob([mhtmlData], {type: 'multipart/related'});
+    const url = URL.createObjectURL(blob);
+
+    chrome.tabs.update({url: url});
+  }
+}
