@@ -19,6 +19,7 @@
     "default_popup": "src/popup.html",
     "default_title": "Permanent Record",
     "default_icon": {
+      "16": "icons/save-icon-16.png",
       "32": "icons/save-icon-32.png",
       "64": "icons/save-icon-32.png",
       "96": "icons/save-icon-96.png"
@@ -30,7 +31,7 @@
   // Recommended
   "description": "Archives webpages onto the blockchain - TreeHacks 2024",
   "icons": {
-    // "16": "icons/TreeHacks-white-16.png",
+    "16": "icons/save-icon-16.png",
     "32": "icons/save-icon-32.png",
     // "48": "icons/TreeHacks-white-48.png",
     "64": "icons/save-icon-64.png",
