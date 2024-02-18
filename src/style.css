@@ -1,7 +1,7 @@
 body {
     font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
     font-size: 14px;
-    background-color: #f4f4f4;
+    background-color: #38405F;
     margin: 0;
     padding: 20px;
     color: #333;
@@ -10,8 +10,13 @@ body {
   header {
     font-family: "Courier New", Courier, monospace;
     font-size: 24px;
-    color: #21759b;
+    color: #FFFFFF;
     margin-bottom: 20px;
+    user-select: none;
+  }
+
+  span {
+    color: #FF0035;
   }
   
   .container {
@@ -23,8 +28,8 @@ body {
   
   button {
     font-family: "Courier New", Courier, monospace;
-    background-color: #21759b;
-    color: white;
+    background-color: #FFFFFF;
+    color: #38405F;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -34,15 +39,6 @@ body {
   }
   
   button:hover {
-    background-color: #1e6890;
-  }
-  
-  #htmlContent {
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-top: 20px;
-    overflow-x: auto;
+    background-color: #D2D7DF;
   }
   
