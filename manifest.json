@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Save HTML",
+  "name": "Permanent Record",
   "version": "1.0",
-  "description": "Save the HTML of the current webpage",
+  "description": "Save the HTML of the current webpage - TreeHacks 2024",
   "permissions": ["activeTab", "downloads", "storage", "tabs", "scripting", "pageCapture"],
   "background": {
     "service_worker": "src/background.js"
@@ -15,5 +15,11 @@
       "64": "icons/save-icon-64.png",
       "96": "icons/save-icon-96.png"
     }
+  },
+  "icons": {
+      "16": "icons/save-icon-16.png",
+      "32": "icons/save-icon-32.png",
+      "64": "icons/save-icon-64.png",
+      "96": "icons/save-icon-96.png"
   }
 }
