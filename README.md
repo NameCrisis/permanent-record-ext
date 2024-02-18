@@ -11,3 +11,6 @@ Permanent Record is a revolutionary Chrome extension that empowers users to arch
 - **User-Friendly Interface**: Simple and intuitive design for effortless navigation and usage.
 - **Privacy-Focused**: Ensures user privacy and security throughout the archiving process.
 - **Open Source**: Encourages community involvement and contributions.
+
+# Other Links
+- [Contract Code](https://github.com/jspnguyen/Permanent-Record-Contract)
