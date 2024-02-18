@@ -18,7 +18,11 @@
   "action": {
     "default_popup": "src/popup.html",
     "default_title": "Permanent Record",
-    "default_icon": "icons/save-icon-32.png"
+    "default_icon": {
+      "32": "icons/save-icon-32.png",
+      "64": "icons/save-icon-32.png",
+      "96": "icons/save-icon-96.png"
+    }
   },
 
 
@@ -29,7 +33,7 @@
     // "16": "icons/TreeHacks-white-16.png",
     "32": "icons/save-icon-32.png",
     // "48": "icons/TreeHacks-white-48.png",
-    "64": "icons/save-icon-32.png",
+    "64": "icons/save-icon-64.png",
     "96": "icons/save-icon-96.png"
     // "128": "icons/TreeHacks-white-128.png"
   },
@@ -42,18 +46,24 @@
   // https://developer.chrome.com/extensions/declare_permissions
   "permissions": [
     "storage", // Allows access to chrome.storage API
-    "downloads"
+    "downloads",
+    "activeTab",
+    "tabs"
 ],
 
-  "content_scripts": [
-    {
-      "matches": [
-        "*://*/*"
-      ],
-      "js": [
-        "/src/content.js"
-      ],
-      "run_at": "document_end"
-    }
-  ]
+  "background": {
+    "service_worker": "/src/background.js"
+  }
+
+  // "content_scripts": [
+  //   {
+  //     "matches": [
+  //       "*://*/*"
+  //     ],
+  //     "js": [
+  //       "/src/content.js"
+  //     ],
+  //     "run_at": "document_end"
+  //   }
+  // ]
 }
