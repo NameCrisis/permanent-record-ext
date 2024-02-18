@@ -8,21 +8,25 @@
  * everytime a webpage loads over HTTP or HTTPS.
  */
 
-var elements = document.getElementsByTagName('*');
+// const archivedPage = document.documentElement.outerHTML;
 
-for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
+// // document.body.addEventListener("DOMContentLoaded", savePage())
 
-    for (var j = 0; j < element.childNodes.length; j++) {
-        var node = element.childNodes[j];
+// function savePage(){
+//     print(archivedPage)
+// }
 
-        if (node.nodeType === 3) {
-            var text = node.nodeValue;
-            var replacedText = text.replace(/cal/gi, "butt"); // replaces "cal," "Cal", etc. with "butt"
+(function() {
+    const html = document.documentElement.outerHTML;
+    // Here, you can either display the HTML directly,
+    // send it to a server, or use the Chrome Storage API to save it.
+    console.log(html);
+    function saveHtmlToStorage() {
+        const html = document.documentElement.outerHTML;
+        chrome.storage.local.set({key: html}, function() {
+          console.log('HTML is saved in Chrome storage');
+        });
+      }
+        })();
 
-            if (replacedText !== text) {
-                element.replaceChild(document.createTextNode(replacedText), node);
-              }
-        }
-    }
-}
+        
