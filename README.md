@@ -1,6 +1,6 @@
 # Permanent Record Extension 💽
 
-Permanent Record Ext is a revolutionary Chrome extension that empowers users to archive web pages directly into the blockchain, ensuring permanence, authenticity, and tamper-proof records. This project leverages the immutable nature of blockchain technology to provide a unique solution for digital preservation and authenticity verification.
+Permanent Record is a revolutionary Chrome extension that empowers users to archive web pages directly into the blockchain, ensuring permanence, authenticity, and tamper-proof records. This project leverages the immutable nature of blockchain technology to provide a unique solution for digital preservation and authenticity verification.
 
 ![Permanent Record Ext Banner](images/banner.png)
 
