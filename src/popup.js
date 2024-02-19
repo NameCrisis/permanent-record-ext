@@ -25,7 +25,7 @@ document.getElementById('saveHtml').addEventListener('click', () => {
 
 async function mintPost() {
   const provider = new ethers.JsonRpcProvider("https://treehacks-devnet.rpc.caldera.xyz/http");
-  const signer = new ethers.Wallet("0acd6c3ec8a6161dc7713985382e4dcb0bac4dd9ec8f83370ac95e828cc1603d", provider); 
+  const signer = new ethers.Wallet("PRIV_KEY", provider); 
 
   const contractABI = [
     {
