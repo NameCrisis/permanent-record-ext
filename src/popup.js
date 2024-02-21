@@ -605,24 +605,28 @@ async function mintPost() {
   modifyContractData();
 }
 
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.executeScript(tabs[0].id, {file: 'contentScript.js'});
+document.getElementById('loadHtml').addEventListener('click', () => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    const currentTab = tabs[0]; 
+    globalTabUrl = currentTab.url;
+
+    chrome.pageCapture.saveAsMHTML({ tabId: currentTab.id }, (mhtmlData) => {
+      const reader = new FileReader();
+      reader.onload = async function(event) { 
+        globalMhtmlString = event.target.result;
+        if (globalMhtmlString.includes("exist")) {
+          const mhtmlData = localStorage.getItem('savedMhtml');
+
+          const blob = new Blob([mhtmlData], {type: 'multipart/related'});
+          const url = URL.createObjectURL(blob);
+
+          chrome.tabs.update(undefined, {url: url});
+        } else {
+          console.log("If failed")
+        }
+      };
+      reader.readAsText(mhtmlData);
+    });
+  });
 });
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.found) {
-    loadMHTML();
-  }
-});
-
-function loadMHTML() {
-  const mhtmlString = localStorage.getItem('saveMhtml');
-  if (mhtmlString) {
-    const mhtmlData = mhtmlString;
-
-    const blob = new Blob([mhtmlData], {type: 'multipart/related'});
-    const url = URL.createObjectURL(blob);
-
-    chrome.tabs.update({url: url});
-  }
-}
